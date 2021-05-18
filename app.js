@@ -10,9 +10,24 @@ const prev = document.querySelector('#prev')
 const cards = document.querySelector('.cards')
 const verMais = document.querySelector('#verMais')
 const contentVerMais = document.querySelector('.right-features')
+const loader = document.querySelector('.loader-screen')
 
 let activeCircle = positionTimeline = 0
 
+loader.onclick = () => {
+    loader.classList.add('active')
+    document.querySelector('body').style.overflowY = "scroll"
+    let audio = new Audio('login.mp3');
+    audio.play(); 
+}
+document.addEventListener('keypress', (e) => {
+    if(e.key === 'Enter'){
+        loader.classList.add('active')
+        document.querySelector('body').style.overflowY = "scroll"
+        let audio = new Audio('login.mp3');
+        audio.play(); 
+    }
+})
 function clearContainers() {
     containers.forEach(element => {
         element.classList.remove("active")
